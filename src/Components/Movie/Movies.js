@@ -19,7 +19,13 @@ function Movies({ title, movieList }) {
       <h4> {title} </h4>
       <Carousel {...settings}>
         {movieList?.map((movie) => {
-          return <CardMovie image={movie.poster_path} />;
+          return (
+            <CardMovie
+              image={movie.poster_path}
+              id={movie.id}
+              type={movie.media_type}
+            />
+          );
         })}
       </Carousel>
     </Container>

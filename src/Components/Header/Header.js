@@ -7,11 +7,26 @@ import AddIcon from "@mui/icons-material/Add";
 import StarIcon from "@mui/icons-material/Star";
 import MovieIcon from "@mui/icons-material/Movie";
 import LiveTvIcon from "@mui/icons-material/LiveTv";
+import { Link } from "react-router-dom";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import { AuthContext } from "../../AuthContext";
 
-function Header() {
+function Header({ classHeader, show }) {
+  const { profile } = React.useContext(AuthContext);
+
   return (
-    <Container>
+    <Container className={!!classHeader && "transparent"}>
       <Section>
+        {!!show && (
+          <Link to={"/"}>
+            <span id="arrow-back">
+              <ArrowBackIosIcon
+                style={{ fontSize: 25, color: "white", cursor: "pointer" }}
+              />
+            </span>
+          </Link>
+        )}
+
         <img src="/images/logo.svg" alt="" />
         <NavComponent text="início" Icon={HomeIcon} />
         <NavComponent text="pesquisa" Icon={SearchIcon} />
@@ -20,10 +35,13 @@ function Header() {
         <NavComponent text="filmes" Icon={MovieIcon} />
         <NavComponent text="séries" Icon={LiveTvIcon} />
       </Section>
-      <ProfileCard>
-        <p>Murilo duarte</p>
-        <img src="/images/bart.png" alt="" />
-      </ProfileCard>
+
+      <Link id="link" to={"/edit-profiles"}>
+        <ProfileCard>
+          <p>Murilo duarte</p>
+          <img src={profile} alt="" />
+        </ProfileCard>
+      </Link>
     </Container>
   );
 }

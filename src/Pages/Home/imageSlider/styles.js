@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import Slider from "react-slick";
-import { mobile } from "../../Constants/breakpoints";
+import { mobile } from "../../../Constants/breakpoints";
 
 export const Carousel = styled(Slider)`
-  margin-top: 30px;
+  margin-top: 105px;
   width: 92%;
   position: relative;
   .slick-next:before,

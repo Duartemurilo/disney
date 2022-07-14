@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mobile } from "../../Constants/breakpoints";
+import { mobile } from "../../../Constants/breakpoints";
 
 export const Container = styled.div`
   display: flex;

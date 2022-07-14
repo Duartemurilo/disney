@@ -68,6 +68,13 @@ export const Carousel = styled(Slider)`
       opacity: 0.75;
     }
   }
+
+  @media (max-width: ${mobile}) {
+    .slick-next:before,
+    .slick-prev:before {
+      display: none;
+    }
+  }
 `;
 
 export const Wrap = styled.div`

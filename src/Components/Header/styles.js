@@ -10,8 +10,11 @@ export const Container = styled.div`
   background-color: #040714;
   height: 72px;
   width: 100%;
-  position: sticky;
+  position: absolute;
   top: 0px;
+  #link {
+    text-decoration: none;
+  }
   @media (max-width: ${mobile}) {
     justify-content: center;
     height: 70px;
@@ -26,16 +29,35 @@ export const Section = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  #arrow-back {
+    display: none;
+  }
   img {
     width: 80px;
     height: 48px;
   }
   @media (max-width: ${mobile}) {
+    display: flex;
     justify-content: center;
+    position: relative;
     width: 100%;
+    align-items: center;
+
+    margin: 0;
     img {
       width: 100px;
-      height: 68px;
+      height: 100%;
+    }
+    #arrow-back {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      position: absolute;
+      left: 30px;
+      bottom: 0;
     }
   }
 `;
@@ -87,11 +109,15 @@ export const ProfileCard = styled.div`
   align-items: center;
   height: 56px;
   width: 250px;
+  cursor: pointer;
+
   p {
+    text-decoration: none;
     text-transform: uppercase;
     margin-right: 16px;
     color: white;
     font-size: 13px;
+    z-index: 2;
   }
   img {
     height: 55px;
@@ -99,6 +125,7 @@ export const ProfileCard = styled.div`
     border-radius: 50%;
     object-fit: contain;
     cursor: pointer;
+    z-index: 2;
   }
 
   @media (max-width: 1150px) {

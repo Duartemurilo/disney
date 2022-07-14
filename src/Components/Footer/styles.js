@@ -35,6 +35,7 @@ export const Container = styled.div`
   @media (max-width: ${mobile}) {
     width: 90%;
     height: auto;
+    background-color: transparent;
     .card-icon {
       margin-top: 8vh;
       min-width: 150px;

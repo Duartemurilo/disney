@@ -1,8 +1,8 @@
 import React from "react";
 import Header from "../../Components/Header/Header";
-import ImageSlide from "../../Components/imageSlider/ImageSlide";
+import ImageSlide from "./imageSlider/ImageSlide";
 import Movies from "../../Components/Movie/Movies";
-import Viewers from "../../Components/Viewers/Viewers";
+import Viewers from "./Viewers/Viewers";
 import { Container } from "./styles";
 import { useRequestData } from "../../Hooks/UseRequestData";
 import {
@@ -14,6 +14,8 @@ import {
   upcoming,
 } from "../../Constants/Url";
 import Footer from "../../Components/Footer/Footer";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import Menu from "./Menu/Menu";
 
 function Home() {
   const recodUrl = useRequestData(recomend);
@@ -22,6 +24,7 @@ function Home() {
   const docUrl = useRequestData(documentary);
   const thor = useRequestData(thorSimilar);
   const upcomingUrl = useRequestData(upcoming);
+  const matches = useMediaQuery("(max-width:1100px)");
 
   return (
     <Container>
@@ -43,6 +46,7 @@ function Home() {
         <Movies title={"Novidades"} movieList={upcomingUrl?.results} />
       </span>
       <Footer />
+      {!!matches && <Menu />}
     </Container>
   );
 }
